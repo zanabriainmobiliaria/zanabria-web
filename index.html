@@ -258,15 +258,35 @@ strong{font-weight:700;color:var(--blanco)}
 
 /* MODAL */
 .modal{border:0;padding:0;background:transparent;max-width:none;max-height:none;overflow:visible}
-.modal[open]{position:fixed;inset:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:12px}
+.modal[open]{position:fixed;inset:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:clamp(0px,2vw,20px)}
 .modal::backdrop{background:rgba(5,11,20,.86);backdrop-filter:blur(6px)}
-.modal__caja{position:relative;background:var(--navy-sup);color:var(--hielo);width:min(100%,820px);border:1px solid rgba(133,183,235,.24);border-radius:var(--r);overflow:hidden;max-height:92dvh;display:flex;flex-direction:column}
+.modal__caja{position:relative;background:var(--navy-sup);color:var(--hielo);width:min(100%,1140px);border:1px solid rgba(133,183,235,.24);border-radius:var(--r);overflow:hidden;max-height:96dvh;display:flex;flex-direction:column}
+@media (min-width:960px){
+  .modal__caja{display:grid;grid-template-columns:1.12fr .88fr;height:min(88dvh,780px)}
+  .modal__cuerpo{border-left:1px solid rgba(133,183,235,.18)}
+}
 .modal__x{position:absolute;top:12px;right:12px;z-index:3;width:40px;height:40px;border-radius:var(--r);background:rgba(10,22,40,.85);border:1px solid rgba(133,183,235,.3);color:var(--hielo);cursor:pointer;font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center}
-.galeria{position:relative;aspect-ratio:16/10;background:var(--steel);flex:none}
-.galeria img{width:100%;height:100%;object-fit:cover}
-.galeria__nav{position:absolute;inset:auto 0 0 0;display:flex;justify-content:space-between;align-items:center;padding:12px}
-.galeria__btn{width:38px;height:38px;border-radius:var(--r);border:0;background:rgba(10,22,40,.85);color:var(--hielo);cursor:pointer;font-size:17px;line-height:1;display:flex;align-items:center;justify-content:center}
-.galeria__n{font-size:11px;font-weight:700;letter-spacing:.14em;background:rgba(10,22,40,.85);color:var(--hielo);padding:7px 12px;border-radius:var(--r)}
+/* --- Galería: muestra la foto entera, sea vertical u horizontal --- */
+.galeria-col{display:flex;flex-direction:column;background:#06101E;min-height:0;min-width:0}
+.galeria{position:relative;background:#06101E;height:min(54vh,440px);display:flex;align-items:center;justify-content:center;min-height:0;overflow:hidden}
+@media (min-width:960px){.galeria{height:auto;flex:1}}
+.galeria img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block}
+.galeria__n{position:absolute;right:12px;bottom:12px;font-size:11px;font-weight:700;letter-spacing:.14em;background:rgba(10,22,40,.85);color:var(--hielo);padding:7px 12px;border-radius:var(--r)}
+.gal-flecha{
+  position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;
+  border:1px solid rgba(133,183,235,.3);background:rgba(10,22,40,.78);color:var(--hielo);
+  cursor:pointer;font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;
+  transition:background .2s,transform .2s;
+}
+.gal-flecha:hover{background:var(--acento);color:var(--navy)}
+.gal-flecha--izq{left:10px}
+.gal-flecha--der{right:10px}
+.tiras{display:flex;gap:8px;padding:10px;overflow-x:auto;flex:none;background:rgba(6,16,30,.92);border-top:1px solid rgba(133,183,235,.14)}
+.tira{flex:none;width:74px;height:56px;padding:0;border:1.5px solid transparent;border-radius:var(--r);overflow:hidden;background:none;cursor:pointer;opacity:.55;transition:opacity .2s,border-color .2s}
+.tira:hover{opacity:1}
+.tira[data-activa="1"]{opacity:1;border-color:var(--acento)}
+.tira img{width:100%;height:100%;object-fit:cover;display:block}
+.galeria__sello{z-index:2}
 .modal__cuerpo{padding:26px var(--marco) 32px;overflow:auto;min-height:0}
 .modal__precio{font-size:clamp(28px,5vw,38px);font-weight:800;color:var(--acento);letter-spacing:-.04em;margin:14px 0 2px;line-height:1}
 .specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:14px;margin:24px 0;padding:20px 0;border-block:1px solid rgba(133,183,235,.18)}
@@ -1250,6 +1270,10 @@ const DEFAULTS = {
   const publicadas = () => (CONFIG.propiedades || []).filter(sigueVisible);
 
   const ubicacionDe = (p) => [txt(p.barrio), txt(p.localidad)].filter(Boolean).join(" · ");
+  /* En la tarjeta mostramos la dirección; si no está cargada, cae al barrio y la localidad */
+  const cabeceraDe = (p) => (txt(p.direccion)
+    ? [txt(p.direccion), txt(p.localidad)].filter(Boolean).join(" · ")
+    : ubicacionDe(p));
 
   function datosCortos(p) {
     const d = [];
@@ -1393,7 +1417,7 @@ const DEFAULTS = {
       (cerrada ? '<span class="tag tag--cerrada">' + esc(est) + "</span>"
                : (est !== "Disponible" ? '<span class="tag tag--alerta">' + esc(est) + "</span>" : "")) +
       (p.destacada && !cerrada ? '<span class="tag tag--acento">Destacada</span>' : "");
-    const ubic = ubicacionDe(p);
+    const ubic = cabeceraDe(p);
     const datos = datosCortos(p);
     return '<button class="ficha rev' + (cerrada ? " ficha--cerrada" : "") + '" type="button" data-abrir="' + i + '">' +
       '<span class="ficha__foto"><img src="' + esc(fotosDe(p)[0]) + '" alt="' + esc(p.titulo) + '" loading="lazy">' +
@@ -1485,12 +1509,21 @@ const DEFAULTS = {
 
     modal.innerHTML = '<div class="modal__caja">' +
       '<button class="modal__x" type="button" data-cerrar aria-label="Cerrar">✕</button>' +
-      '<div class="galeria"><img src="' + esc(fotos[gi]) + '" alt="' + esc(p.titulo) + '">' +
-      (cerrada ? '<span class="galeria__sello">' + esc(estadoDe(p)) + "</span>" : "") +
-      (fotos.length > 1 ? '<div class="galeria__nav">' +
-        '<button class="galeria__btn" type="button" data-gal="-1" aria-label="Foto anterior">‹</button>' +
-        '<span class="galeria__n">' + (gi + 1) + " / " + fotos.length + "</span>" +
-        '<button class="galeria__btn" type="button" data-gal="1" aria-label="Foto siguiente">›</button></div>' : "") +
+      '<div class="galeria-col">' +
+        '<div class="galeria" data-galeria>' +
+          '<img src="' + esc(fotos[gi]) + '" alt="' + esc(p.titulo) + '">' +
+          (cerrada ? '<span class="galeria__sello">' + esc(estadoDe(p)) + "</span>" : "") +
+          (fotos.length > 1
+            ? '<button class="gal-flecha gal-flecha--izq" type="button" data-gal="-1" aria-label="Foto anterior">‹</button>' +
+              '<button class="gal-flecha gal-flecha--der" type="button" data-gal="1" aria-label="Foto siguiente">›</button>' +
+              '<span class="galeria__n">' + (gi + 1) + " / " + fotos.length + "</span>"
+            : "") +
+        "</div>" +
+        (fotos.length > 1
+          ? '<div class="tiras">' + fotos.map((f, k) =>
+              '<button class="tira" type="button" data-ir="' + k + '" data-activa="' + (k === gi ? "1" : "0") +
+              '" aria-label="Foto ' + (k + 1) + '"><img src="' + esc(f) + '" alt="" loading="lazy"></button>').join("") + "</div>"
+          : "") +
       "</div>" +
       '<div class="modal__cuerpo">' +
         '<span class="kicker" style="margin-bottom:12px">' +
@@ -1605,10 +1638,30 @@ const DEFAULTS = {
       if (e.target.closest("[data-cerrar]")) { cerrarModal(); return; }
       const g = e.target.closest("[data-gal]");
       if (g) { gi += Number(g.getAttribute("data-gal")); pintarModal(); return; }
+      const ir = e.target.closest("[data-ir]");
+      if (ir) { gi = Number(ir.getAttribute("data-ir")); pintarModal(); return; }
       const env = e.target.closest("[data-envio]");
       if (env) { enviarConsulta(env.getAttribute("data-envio")); return; }
       if (e.target === modal) cerrarModal();
     });
+    document.addEventListener("keydown", (e) => {
+      if (!modal.open || !actual) return;
+      if (e.key === "ArrowLeft") { gi -= 1; pintarModal(); }
+      if (e.key === "ArrowRight") { gi += 1; pintarModal(); }
+    });
+    let tocoX = null;
+    modal.addEventListener("touchstart", (e) => {
+      if (!e.target.closest("[data-galeria]")) { tocoX = null; return; }
+      tocoX = e.changedTouches[0].clientX;
+    }, { passive: true });
+    modal.addEventListener("touchend", (e) => {
+      if (tocoX === null) return;
+      const dif = e.changedTouches[0].clientX - tocoX;
+      tocoX = null;
+      if (Math.abs(dif) < 45) return;
+      gi += dif < 0 ? 1 : -1;
+      pintarModal();
+    }, { passive: true });
     modal.addEventListener("close", () => { document.body.style.overflow = ""; });
     modal.addEventListener("cancel", () => { document.body.style.overflow = ""; });
   }
