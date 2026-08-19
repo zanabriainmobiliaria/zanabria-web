@@ -1,0 +1,35 @@
+{
+  "proyectos": [
+    {
+      "activo": true,
+      "nombre": "Nombre del proyecto",
+      "estado": "En construcción",
+      "ubicacion": "Calle y altura",
+      "entrega": "Entrega estimada 2027",
+      "resumen": "Cargá desde el panel el resumen del proyecto: cantidad de pisos, tipologías, terminaciones y amenities.",
+      "ventajas": [
+        "Precio de pozo: el valor más bajo que va a tener esta unidad.",
+        "Plan de pago en cuotas durante toda la obra.",
+        "Revalorización desde el pozo hasta la entrega."
+      ],
+      "financiacion": "Anticipo y saldo en cuotas ajustables durante la obra. El plan se arma según la unidad: te lo pasamos por WhatsApp.",
+      "tour3d": "",
+      "renders": [],
+      "obra": [],
+      "kpis": [
+        {
+          "valor": "—",
+          "etiqueta": "Unidades"
+        },
+        {
+          "valor": "—",
+          "etiqueta": "m² desde"
+        },
+        {
+          "valor": "—",
+          "etiqueta": "Cuotas"
+        }
+      ]
+    }
+  ]
+}

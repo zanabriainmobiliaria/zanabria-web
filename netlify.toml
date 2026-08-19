@@ -1,0 +1,20 @@
+# Publicación del sitio (no hace falta compilar nada)
+[build]
+  publish = "."
+
+# El panel no se indexa en buscadores
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+# Las fotos se cachean, los datos no (para que un cambio del panel se vea al toque)
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "no-cache"

@@ -1,0 +1,102 @@
+{
+  "marca": {
+    "nombre": "Zanabria Inmobiliaria",
+    "direccion": "Darregueira 75",
+    "mapa": "",
+    "whatsapp": "5492914602001",
+    "telefono": "+542914602001",
+    "telefonoVisible": "291 460 2001",
+    "instagram": "https://www.instagram.com/zanabriainmobiliaria/",
+    "instagramUser": "@zanabriainmobiliaria",
+    "email": "zanabriainmobiliaria@gmail.com"
+  },
+  "titular": {
+    "nombre": "Ignacio Zanabria",
+    "matricula": "Martillero y Corredor Público · Matrícula N.º 2061"
+  },
+  "autor": {
+    "nombre": "Bautista",
+    "rol": "Manejo la comunicación digital de Zanabria Inmobiliaria y trabajo en ventas y alquileres: las campañas para difundir las propiedades y posicionar la inmobiliaria, la producción del contenido con el que presentamos cada unidad disponible, y los canales por los que entran las consultas de venta y alquiler. También recorro departamentos de vez en cuando."
+  },
+  "agenda": {
+    "idAgenda": "",
+    "urlDirecta": "",
+    "dias": "Lunes a viernes y sábados",
+    "horario": "9:00 a 13:00 h",
+    "duracion": "15 minutos"
+  },
+  "leads": {
+    "endpoint": ""
+  },
+  "videos": {
+    "institucional": {
+      "tipo": "",
+      "youtube": "",
+      "archivo": "",
+      "poster": "",
+      "vacio": "Presentación de la inmobiliaria con Ignacio"
+    },
+    "autor": {
+      "tipo": "",
+      "youtube": "",
+      "archivo": "",
+      "poster": "",
+      "vacio": "Detrás de la web, con Bautista"
+    },
+    "pozo": {
+      "tipo": "",
+      "youtube": "",
+      "archivo": "",
+      "poster": "",
+      "vacio": "Ignacio explica las ventajas de comprar en pozo"
+    }
+  },
+  "tour3d": {
+    "url": "",
+    "titulo": "Recorrido 3D del proyecto"
+  },
+  "busqueda": {
+    "imagenes": [
+      {
+        "src": "",
+        "texto": "Escuchamos qué buscás"
+      },
+      {
+        "src": "",
+        "texto": "Salimos a buscarlo"
+      },
+      {
+        "src": "",
+        "texto": "Te acompañamos hasta la llave"
+      }
+    ]
+  },
+  "estadisticas": {
+    "actualizado": "agosto 2026",
+    "fuente": "Instagram Insights + analítica de esta web",
+    "items": [
+      {
+        "valor": "—",
+        "etiqueta": "Cuentas alcanzadas por mes",
+        "detalle": "Alcance total de las publicaciones en Instagram."
+      },
+      {
+        "valor": "—",
+        "etiqueta": "Visitas a esta web",
+        "detalle": "Personas que entraron desde el perfil o desde un video."
+      },
+      {
+        "valor": "—",
+        "etiqueta": "Consultas recibidas",
+        "detalle": "Mensajes originados en la web."
+      },
+      {
+        "valor": "—",
+        "etiqueta": "Operaciones cerradas",
+        "detalle": "Alquileres y ventas concretadas en el período."
+      }
+    ]
+  },
+  "diasVendida": 12,
+  "cotizacionDolar": 1400
+}

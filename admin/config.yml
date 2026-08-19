@@ -1,0 +1,319 @@
+# ---------------------------------------------------------------------------
+# CÓMO ENTRA EL PANEL A GITHUB
+# Opción A (la que está activa): Netlify Identity + Git Gateway.
+# Opción B: si Netlify no te deja activar Git Gateway, borrá las 6 líneas de
+# abajo y descomentá el bloque de la Opción B, cambiando USUARIO/REPO por lo tuyo.
+# ---------------------------------------------------------------------------
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    update: 'Panel: actualiza {{collection}}'
+    openAuthoring: 'Panel: {{message}}'
+
+# --- OPCIÓN B: entrar al panel con tu cuenta de GitHub ---
+# backend:
+#   name: github
+#   repo: USUARIO/zanabria-web
+#   branch: main
+#   base_url: https://api.netlify.com
+
+locale: es
+publish_mode: simple
+media_folder: assets/img
+public_folder: /assets/img
+logo_url: /logo-zanabria-blanco.png
+
+collections:
+  # =====================================================================
+  - name: propiedades
+    label: Propiedades
+    label_singular: Propiedad
+    editor:
+      preview: false
+    files:
+      - name: listado
+        label: Listado de propiedades
+        file: data/propiedades.json
+        description: >-
+          Todas las propiedades del sitio. Tocá "Add Propiedad" para sumar una nueva,
+          arrastrá para cambiar el orden y usá la flecha para desplegar cada una.
+          Los campos que dejes vacíos no aparecen en la web.
+        fields:
+          - label: Propiedades
+            name: propiedades
+            widget: list
+            label_singular: Propiedad
+            collapsed: true
+            summary: '{{fields.titulo}} — {{fields.estadoOperacion}}'
+            fields:
+
+              # --- Estado y visibilidad ---
+              - { label: 'Publicada en la web', name: activa, widget: boolean, default: true, hint: 'Apagalo para sacarla de la web sin borrar los datos.' }
+              - { label: 'Destacada', name: destacada, widget: boolean, default: false, required: false, hint: 'Aparece primera y con etiqueta.' }
+              - label: 'Estado de la operación'
+                name: estadoOperacion
+                widget: select
+                default: Disponible
+                options: [Disponible, Reservada, Vendida, Alquilada]
+              - label: 'Fecha en que se cerró'
+                name: fechaEstado
+                widget: datetime
+                required: false
+                date_format: 'DD/MM/YYYY'
+                time_format: false
+                picker_utc: false
+                format: 'YYYY-MM-DD'
+                hint: 'Completala solo si la marcaste Vendida o Alquilada. A partir de esa fecha queda a la vista los días configurados en Sitio → Ajustes y después se retira sola.'
+
+              # --- Identificación ---
+              - { label: 'Código interno', name: id, widget: string, required: false, hint: 'Ej: VT-004 o AL-012. Sirve para identificarla en las consultas.' }
+              - label: 'Operación'
+                name: operacion
+                widget: select
+                default: venta
+                options:
+                  - { label: 'Venta', value: venta }
+                  - { label: 'Alquiler', value: alquiler }
+              - label: 'Tipo de propiedad'
+                name: tipo
+                widget: select
+                options: [Casa, Departamento, PH, Dúplex, Local, Oficina, Galpón, Terreno, Quinta, Campo, Cochera]
+              - { label: 'Título', name: titulo, widget: string, hint: 'Ej: Casa en Las Ballenas 200, Dufaur' }
+
+              # --- Ubicación ---
+              - { label: 'Dirección', name: direccion, widget: string, required: false }
+              - { label: 'Barrio', name: barrio, widget: string, required: false }
+              - { label: 'Localidad', name: localidad, widget: string, required: false }
+
+              # --- Precio ---
+              - label: 'Moneda'
+                name: moneda
+                widget: select
+                default: USD
+                options:
+                  - { label: 'Dólares (US$)', value: USD }
+                  - { label: 'Pesos ($)', value: ARS }
+              - { label: 'Precio', name: precio, widget: number, required: false, value_type: int, min: 0, hint: 'Dejalo vacío y en la web dice "Consultar".' }
+              - { label: 'Expensas', name: expensas, widget: number, required: false, value_type: int, min: 0 }
+
+              # --- Detalles ---
+              - { label: 'Dormitorios', name: dormitorios, widget: number, required: false, value_type: int, min: 0 }
+              - { label: 'Baños', name: banos, widget: number, required: false, value_type: int, min: 0 }
+              - { label: 'Ambientes', name: ambientes, widget: number, required: false, value_type: int, min: 0 }
+              - { label: 'Cocheras', name: cocheras, widget: number, required: false, value_type: int, min: 0 }
+              - { label: 'Superficie cubierta (m²)', name: supCubierta, widget: number, required: false, value_type: int, min: 0 }
+              - { label: 'Superficie total (m²)', name: supTotal, widget: number, required: false, value_type: int, min: 0 }
+              - label: 'Antigüedad'
+                name: antiguedad
+                widget: select
+                required: false
+                options: ['A estrenar', 'En construcción', 'Menos de 5 años', '5 a 10 años', '10 a 20 años', 'Mayor a 20 años']
+              - label: 'Estado de conservación'
+                name: estadoConservacion
+                widget: select
+                required: false
+                options: [Excelente, 'Muy bueno', Bueno, 'A refaccionar', 'A estrenar']
+              - label: 'Orientación'
+                name: orientacion
+                widget: select
+                required: false
+                options: [Norte, Sur, Este, Oeste, Noreste, Noroeste, Sudeste, Sudoeste]
+
+              # --- Servicios y características ---
+              - label: 'Servicios'
+                name: servicios
+                widget: select
+                multiple: true
+                required: false
+                options: ['Luz', 'Gas natural', 'Gas envasado', 'Agua corriente', 'Perforación', 'Cloacas', 'Pavimento', 'Internet / Fibra']
+              - label: 'Características'
+                name: extras
+                widget: select
+                multiple: true
+                required: false
+                options: ['Patio', 'Jardín', 'Pileta', 'Quincho', 'Parrilla', 'Fogón', 'Balcón', 'Terraza', 'Altillo', 'Placares', 'Suite', 'Aire acondicionado', 'Calefacción', 'Amoblada', 'Cochera', 'Baulera', 'Amenities', 'Seguridad 24 h', 'Apto crédito', 'Apto profesional', 'Apto mascotas']
+
+              # --- Textos ---
+              - { label: 'Descripción', name: descripcion, widget: text, required: false, hint: 'Podés usar varios párrafos: se respetan los saltos de línea.' }
+              - { label: 'Venta en común con', name: ventaEnComun, widget: string, required: false, hint: 'Ej: Venta en común con Carlos Oña Propiedades — 2916458727' }
+
+              # --- Media ---
+              - label: 'Fotos'
+                name: fotos
+                widget: list
+                required: false
+                field: { label: Foto, name: foto, widget: image }
+                hint: 'La primera es la portada. Podés subirlas de cualquier tamaño; se recortan solas.'
+              - { label: 'Video de YouTube (ID)', name: videoYoutube, widget: string, required: false, hint: 'Solo el código que va después de v= o de youtu.be/' }
+              - { label: 'Link del recorrido 3D', name: tour3d, widget: string, required: false, hint: 'Si lo dejás vacío, la ficha muestra "Tour 3D · Próximamente".' }
+
+  # =====================================================================
+  - name: proyectos
+    label: 'Proyectos en pozo'
+    editor:
+      preview: false
+    files:
+      - name: listado
+        label: 'Proyectos en pozo'
+        file: data/proyectos.json
+        fields:
+          - label: Proyectos
+            name: proyectos
+            widget: list
+            label_singular: Proyecto
+            collapsed: true
+            summary: '{{fields.nombre}}'
+            fields:
+              - { label: 'Publicado en la web', name: activo, widget: boolean, default: true }
+              - { label: 'Nombre del proyecto', name: nombre, widget: string }
+              - label: 'Estado de la obra'
+                name: estado
+                widget: select
+                default: 'En construcción'
+                options: ['En pozo', 'En construcción', 'En terminaciones', 'Próximo a entregar', 'Entregado']
+              - { label: 'Ubicación', name: ubicacion, widget: string, required: false }
+              - { label: 'Fecha de entrega', name: entrega, widget: string, required: false, hint: 'Ej: Entrega estimada 2027' }
+              - { label: 'Resumen', name: resumen, widget: text, required: false }
+              - label: 'Números destacados'
+                name: kpis
+                widget: list
+                required: false
+                collapsed: false
+                summary: '{{fields.valor}} · {{fields.etiqueta}}'
+                fields:
+                  - { label: 'Número', name: valor, widget: string, hint: 'Ej: 24, 38 m², 60' }
+                  - { label: 'Qué mide', name: etiqueta, widget: string, hint: 'Ej: Unidades, m² desde, Cuotas' }
+              - label: 'Ventajas'
+                name: ventajas
+                widget: list
+                required: false
+                field: { label: Ventaja, name: ventaja, widget: string }
+              - { label: 'Financiación', name: financiacion, widget: text, required: false }
+              - label: 'Renders'
+                name: renders
+                widget: list
+                required: false
+                field: { label: Render, name: render, widget: image }
+              - label: 'Fotos de la obra hoy'
+                name: obra
+                widget: list
+                required: false
+                field: { label: Foto, name: foto, widget: image }
+              - { label: 'Link del recorrido 3D', name: tour3d, widget: string, required: false, hint: 'Vacío = muestra "Recorrido 3D · Próximamente".' }
+
+  # =====================================================================
+  - name: sitio
+    label: Sitio
+    editor:
+      preview: false
+    files:
+      - name: configuracion
+        label: 'Contacto, videos y ajustes'
+        file: data/config.json
+        fields:
+          - label: 'Datos de contacto'
+            name: marca
+            widget: object
+            fields:
+              - { label: 'Nombre', name: nombre, widget: string }
+              - { label: 'WhatsApp', name: whatsapp, widget: string, hint: 'Solo números, con 54 y 9 adelante. Ej: 5492914602001' }
+              - { label: 'Teléfono para llamar', name: telefono, widget: string, required: false, hint: 'Ej: +542914602001' }
+              - { label: 'Teléfono como se muestra', name: telefonoVisible, widget: string, required: false, hint: 'Ej: 291 460 2001' }
+              - { label: 'Dirección', name: direccion, widget: string, required: false, hint: 'Si la dejás vacía no aparece en el pie.' }
+              - { label: 'Link de Google Maps', name: mapa, widget: string, required: false }
+              - { label: 'Instagram (link)', name: instagram, widget: string, required: false }
+              - { label: 'Instagram (usuario)', name: instagramUser, widget: string, required: false }
+              - { label: 'Email', name: email, widget: string, required: false, hint: 'Si lo cargás, las fichas suman el botón "Consultar por email".' }
+          - label: 'Matrícula (pie de página)'
+            name: titular
+            widget: object
+            fields:
+              - { label: 'Nombre', name: nombre, widget: string }
+              - { label: 'Matrícula', name: matricula, widget: string }
+          - label: 'Quién administra la web'
+            name: autor
+            widget: object
+            fields:
+              - { label: 'Nombre', name: nombre, widget: string, required: false }
+              - { label: 'Rol', name: rol, widget: string, required: false, hint: 'Ej: encargado de contenidos' }
+          - label: 'Videos'
+            name: videos
+            widget: object
+            fields:
+              - label: 'Institucional (con Ignacio)'
+                name: institucional
+                widget: object
+                fields:
+                  - { label: 'ID de YouTube', name: youtube, widget: string, required: false, hint: 'Recomendado: subilo como "no listado" y pegá solo el ID.' }
+                  - { label: 'Archivo de video', name: archivo, widget: file, required: false, hint: 'Alternativa al ID. Usalo solo con videos livianos (menos de 20 MB).' }
+                  - { label: 'Texto si todavía no hay video', name: vacio, widget: string, required: false }
+              - label: 'Sobre este sitio'
+                name: autor
+                widget: object
+                fields:
+                  - { label: 'ID de YouTube', name: youtube, widget: string, required: false }
+                  - { label: 'Archivo de video', name: archivo, widget: file, required: false }
+                  - { label: 'Texto si todavía no hay video', name: vacio, widget: string, required: false }
+              - label: 'Compra en pozo'
+                name: pozo
+                widget: object
+                fields:
+                  - { label: 'ID de YouTube', name: youtube, widget: string, required: false }
+                  - { label: 'Archivo de video', name: archivo, widget: file, required: false }
+                  - { label: 'Texto si todavía no hay video', name: vacio, widget: string, required: false }
+          - label: 'Recorrido 3D general'
+            name: tour3d
+            widget: object
+            fields:
+              - { label: 'Link para insertar', name: url, widget: string, required: false, hint: 'Matterport, Kuula o EyeSpy360. Vacío = la web muestra "Próximamente".' }
+              - { label: 'Título', name: titulo, widget: string, required: false }
+          - label: 'Agenda de llamadas'
+            name: agenda
+            widget: object
+            fields:
+              - { label: 'ID de la agenda de Google', name: idAgenda, widget: string, required: false, hint: 'Lo que va después de /schedules/ en el código para insertar.' }
+              - { label: 'Link directo a la agenda', name: urlDirecta, widget: string, required: false }
+              - { label: 'Días de atención', name: dias, widget: string, required: false }
+              - { label: 'Horario', name: horario, widget: string, required: false }
+              - { label: 'Duración', name: duracion, widget: string, required: false }
+          - label: 'Imágenes de búsqueda personalizada'
+            name: busqueda
+            widget: object
+            fields:
+              - label: Imágenes
+                name: imagenes
+                widget: list
+                max: 3
+                summary: '{{fields.texto}}'
+                fields:
+                  - { label: Imagen, name: src, widget: image, required: false }
+                  - { label: Epígrafe, name: texto, widget: string, required: false }
+          - label: 'Números verificables'
+            name: estadisticas
+            widget: object
+            fields:
+              - { label: 'Última actualización', name: actualizado, widget: string, required: false }
+              - { label: 'Fuente de los datos', name: fuente, widget: string, required: false }
+              - label: Métricas
+                name: items
+                widget: list
+                summary: '{{fields.valor}} · {{fields.etiqueta}}'
+                fields:
+                  - { label: 'Número', name: valor, widget: string }
+                  - { label: 'Qué mide', name: etiqueta, widget: string }
+                  - { label: 'Explicación', name: detalle, widget: string, required: false }
+          - label: 'Ajustes'
+            name: diasVendida
+            widget: number
+            default: 12
+            value_type: int
+            min: 0
+            max: 120
+            hint: 'Días que una propiedad vendida o alquilada sigue a la vista antes de retirarse sola.'
+          - { label: 'Cotización del dólar', name: cotizacionDolar, widget: number, value_type: int, hint: 'Solo se usa para ordenar por precio mezclando pesos y dólares. No se muestra.' }
+          - label: 'Guardado de consultas (opcional)'
+            name: leads
+            widget: object
+            fields:
+              - { label: 'URL de Formspree', name: endpoint, widget: string, required: false, hint: 'Si la cargás, cada consulta queda guardada además de llegar por WhatsApp.' }
