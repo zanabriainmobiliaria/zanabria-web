@@ -281,6 +281,14 @@ strong{font-weight:700;color:var(--blanco)}
 .visor__n{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);font-size:12px;font-weight:700;letter-spacing:.16em;background:rgba(10,22,40,.85);color:var(--hielo);padding:8px 14px;border-radius:var(--r)}
 .galeria__lupa{position:absolute;left:12px;bottom:12px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:rgba(10,22,40,.8);color:var(--hielo);padding:7px 11px;border-radius:var(--r);pointer-events:none}
 @media (min-width:960px){.galeria__lupa{display:none}}
+/* En el celular scrollea todo junto: la foto sube y el texto entra entero */
+@media (max-width:959px){
+  .modal__caja{display:block;overflow-y:auto;-webkit-overflow-scrolling:touch;max-height:96dvh}
+  .galeria{height:min(52vh,420px)}
+  .modal__cuerpo{overflow:visible;min-height:auto;padding-bottom:40px}
+  .modal__x{position:fixed;top:16px;right:16px;z-index:30;box-shadow:0 6px 20px -6px rgba(0,0,0,.8)}
+  .tiras{position:sticky;top:0;z-index:5}
+}
 .galeria img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block}
 .galeria__n{position:absolute;right:12px;bottom:12px;font-size:11px;font-weight:700;letter-spacing:.14em;background:rgba(10,22,40,.85);color:var(--hielo);padding:7px 12px;border-radius:var(--r)}
 .gal-flecha{
@@ -1676,17 +1684,20 @@ const DEFAULTS = {
       if (e.key === "ArrowRight") { gi += 1; pintarModal(); }
       if (e.key === "Escape" && visor) { e.preventDefault(); visor = false; pintarModal(); }
     });
-    let tocoX = null;
+    let tocoX = null, tocoY = null;
     modal.addEventListener("touchstart", (e) => {
       if (!e.target.closest("[data-galeria]") && !e.target.closest("[data-visor]")) { tocoX = null; return; }
       tocoX = e.changedTouches[0].clientX;
+      tocoY = e.changedTouches[0].clientY;
     }, { passive: true });
     modal.addEventListener("touchend", (e) => {
       if (tocoX === null) return;
-      const dif = e.changedTouches[0].clientX - tocoX;
-      tocoX = null;
-      if (Math.abs(dif) < 45) return;
-      gi += dif < 0 ? 1 : -1;
+      const dx = e.changedTouches[0].clientX - tocoX;
+      const dy = e.changedTouches[0].clientY - tocoY;
+      tocoX = null; tocoY = null;
+      /* solo cambia de foto si el gesto fue claramente horizontal */
+      if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.4) return;
+      gi += dx < 0 ? 1 : -1;
       pintarModal();
     }, { passive: true });
     modal.addEventListener("close", () => { document.body.style.overflow = ""; });
