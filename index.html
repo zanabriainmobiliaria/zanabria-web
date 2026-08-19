@@ -267,9 +267,20 @@ strong{font-weight:700;color:var(--blanco)}
 }
 .modal__x{position:absolute;top:12px;right:12px;z-index:3;width:40px;height:40px;border-radius:var(--r);background:rgba(10,22,40,.85);border:1px solid rgba(133,183,235,.3);color:var(--hielo);cursor:pointer;font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center}
 /* --- Galería: muestra la foto entera, sea vertical u horizontal --- */
-.galeria-col{display:flex;flex-direction:column;background:#06101E;min-height:0;min-width:0}
-.galeria{position:relative;background:#06101E;height:min(54vh,440px);display:flex;align-items:center;justify-content:center;min-height:0;overflow:hidden}
-@media (min-width:960px){.galeria{height:auto;flex:1}}
+.galeria-col{display:flex;flex-direction:column;background:#06101E;min-width:0;flex:none}
+.galeria{position:relative;background:#06101E;height:min(60vh,460px);display:flex;align-items:center;justify-content:center;min-height:0;overflow:hidden;cursor:zoom-in}
+.modal__cuerpo{flex:1}
+@media (min-width:960px){
+  .galeria-col{flex:1;min-height:0}
+  .galeria{height:auto;flex:1}
+}
+/* Visor a pantalla completa */
+.visor{position:fixed;inset:0;z-index:40;background:rgba(4,10,18,.97);display:flex;align-items:center;justify-content:center;padding:8px}
+.visor img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block}
+.visor__x{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(133,183,235,.3);background:rgba(10,22,40,.85);color:var(--hielo);font-size:19px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.visor__n{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);font-size:12px;font-weight:700;letter-spacing:.16em;background:rgba(10,22,40,.85);color:var(--hielo);padding:8px 14px;border-radius:var(--r)}
+.galeria__lupa{position:absolute;left:12px;bottom:12px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:rgba(10,22,40,.8);color:var(--hielo);padding:7px 11px;border-radius:var(--r);pointer-events:none}
+@media (min-width:960px){.galeria__lupa{display:none}}
 .galeria img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block}
 .galeria__n{position:absolute;right:12px;bottom:12px;font-size:11px;font-weight:700;letter-spacing:.14em;background:rgba(10,22,40,.85);color:var(--hielo);padding:7px 12px;border-radius:var(--r)}
 .gal-flecha{
@@ -1471,7 +1482,7 @@ const DEFAULTS = {
 
   /* ---------- Modal de propiedad ---------- */
   const modal = $("#modal");
-  let gi = 0, actual = null;
+  let gi = 0, actual = null, visor = false;
 
   function filaSpecs(p) {
     const s = [
@@ -1510,8 +1521,9 @@ const DEFAULTS = {
     modal.innerHTML = '<div class="modal__caja">' +
       '<button class="modal__x" type="button" data-cerrar aria-label="Cerrar">✕</button>' +
       '<div class="galeria-col">' +
-        '<div class="galeria" data-galeria>' +
+        '<div class="galeria" data-galeria data-abrir-visor>' +
           '<img src="' + esc(fotos[gi]) + '" alt="' + esc(p.titulo) + '">' +
+          '<span class="galeria__lupa">Tocá para ampliar</span>' +
           (cerrada ? '<span class="galeria__sello">' + esc(estadoDe(p)) + "</span>" : "") +
           (fotos.length > 1
             ? '<button class="gal-flecha gal-flecha--izq" type="button" data-gal="-1" aria-label="Foto anterior">‹</button>' +
@@ -1567,11 +1579,22 @@ const DEFAULTS = {
             '<div class="acciones"><a class="btn btn--linea btn--chico" target="_blank" rel="noopener" href="' +
               esc(waLink(msg)) + '">Consulta rápida sin formulario</a>' +
               '<a class="btn btn--linea btn--chico" href="#agenda" data-cerrar>Agendar una visita</a></div>') +
-      "</div></div>";
+      "</div></div>" +
+      (visor
+        ? '<div class="visor" data-visor>' +
+            '<img src="' + esc(fotos[gi]) + '" alt="' + esc(p.titulo) + '">' +
+            '<button class="visor__x" type="button" data-cerrar-visor aria-label="Cerrar">✕</button>' +
+            (fotos.length > 1
+              ? '<button class="gal-flecha gal-flecha--izq" type="button" data-gal="-1" aria-label="Foto anterior">‹</button>' +
+                '<button class="gal-flecha gal-flecha--der" type="button" data-gal="1" aria-label="Foto siguiente">›</button>' +
+                '<span class="visor__n">' + (gi + 1) + " / " + fotos.length + "</span>"
+              : "") +
+          "</div>"
+        : "");
   }
 
   function abrirModal(i) {
-    actual = visibles[i]; gi = 0;
+    actual = visibles[i]; gi = 0; visor = false;
     if (!actual || !modal) return;
     pintarModal();
     if (typeof modal.showModal === "function") modal.showModal(); else modal.setAttribute("open", "");
@@ -1640,6 +1663,9 @@ const DEFAULTS = {
       if (g) { gi += Number(g.getAttribute("data-gal")); pintarModal(); return; }
       const ir = e.target.closest("[data-ir]");
       if (ir) { gi = Number(ir.getAttribute("data-ir")); pintarModal(); return; }
+      if (e.target.closest("[data-cerrar-visor]")) { visor = false; pintarModal(); return; }
+      if (visor && e.target.closest("[data-visor]")) { visor = false; pintarModal(); return; }
+      if (e.target.closest("[data-abrir-visor]")) { visor = true; pintarModal(); return; }
       const env = e.target.closest("[data-envio]");
       if (env) { enviarConsulta(env.getAttribute("data-envio")); return; }
       if (e.target === modal) cerrarModal();
@@ -1648,10 +1674,11 @@ const DEFAULTS = {
       if (!modal.open || !actual) return;
       if (e.key === "ArrowLeft") { gi -= 1; pintarModal(); }
       if (e.key === "ArrowRight") { gi += 1; pintarModal(); }
+      if (e.key === "Escape" && visor) { e.preventDefault(); visor = false; pintarModal(); }
     });
     let tocoX = null;
     modal.addEventListener("touchstart", (e) => {
-      if (!e.target.closest("[data-galeria]")) { tocoX = null; return; }
+      if (!e.target.closest("[data-galeria]") && !e.target.closest("[data-visor]")) { tocoX = null; return; }
       tocoX = e.changedTouches[0].clientX;
     }, { passive: true });
     modal.addEventListener("touchend", (e) => {
@@ -1663,7 +1690,10 @@ const DEFAULTS = {
       pintarModal();
     }, { passive: true });
     modal.addEventListener("close", () => { document.body.style.overflow = ""; });
-    modal.addEventListener("cancel", () => { document.body.style.overflow = ""; });
+    modal.addEventListener("cancel", (e) => {
+      if (visor) { e.preventDefault(); visor = false; pintarModal(); return; }
+      document.body.style.overflow = "";
+    });
   }
 
   /* ---------- Proyectos en pozo ---------- */
