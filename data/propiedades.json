@@ -83,6 +83,40 @@
       "dormitorios": 3,
       "titulo": "Casa 3 dormitorios, Las Dunas, Monte Hermoso.",
       "destacada": false
+    },
+    {
+      "supCubierta": 0,
+      "activa": true,
+      "extras": [
+        "Apto mascotas"
+      ],
+      "barrio": "Centro",
+      "ambientes": 2,
+      "precio": 480000,
+      "localidad": "Bahia Blanca",
+      "descripcion": "Departamento ubicado en Belgrano 263. Zona céntrica, a la vuelta del Teatro Municipal. Bancos, comercios, transporte, todo cerca. Pero al ser contrafrente, queda al margen del movimiento de la zona: se conserva el silencio sin resignar la ubicación.\n\nCuenta con cocina separada y largo lavadero, lo que lo vuelve apto para quien tiene mascota. Cuarto piso con ascensor.\n\n📍 A la vuelta del Teatro Municipal\n🐾 Apto mascota\n🍳 Cocina separada y lavadero\n🛗 Cuarto piso con ascensor\nPaga expensas $87.000",
+      "fotos": [
+        "/assets/img/img_0408.jpg",
+        "/assets/img/img_0409.jpg",
+        "/assets/img/img_0410.jpg",
+        "/assets/img/img_0415.jpg",
+        "/assets/img/img_0417.jpg",
+        "/assets/img/img_0426.jpg",
+        "/assets/img/img_0419.jpg",
+        "/assets/img/img_0411.jpg",
+        "/assets/img/img_0433.jpg",
+        "/assets/img/img_0414.jpg"
+      ],
+      "direccion": "Belgrano 263",
+      "estadoOperacion": "Disponible",
+      "banos": 1,
+      "tipo": "Departamento",
+      "moneda": "ARS",
+      "operacion": "alquiler",
+      "dormitorios": 1,
+      "titulo": "1 dormitorio, largo lavadero calle Belgrano a la vuelta del Teatro Municipal.",
+      "destacada": false,
+      "expensas": 87000
     }
   ]
 }
