@@ -306,6 +306,34 @@
       "titulo": "Local comercial en alquiler – Undiano 574 🏢",
       "destacada": false,
       "expensas": 0
+    },
+    {
+      "activa": true,
+      "ambientes": 2,
+      "precio": 450000,
+      "localidad": "Bahia Blanca",
+      "descripcion": "Departamento de 1 dormitorio en alquiler – Alvear 1768 🏙️\n\nDepartamento ubicado en Alvear 1768, zona Sportiva, en un sector residencial de Bahía Blanca. Unidad compacta y funcional, ubicada en primer piso por escalera.\n\nCaracterísticas principales:\n\n1 dormitorio con placard.\n1 baño.\nCocina comedor integrada en un mismo ambiente.\nUnidad totalmente eléctrica.\nCocina eléctrica.\nCalefón eléctrico.\nCalefacción central.\nAntigüedad menor a 10 años.\nBajas expensas, aproximadamente $40.000.\n\n💵 Alquiler mensual: $450.000.\n\nCondiciones de ingreso:\n\nHonorarios inmobiliarios: $432.000.\nCertificación de firmas: $20.000 cada una.\nJustificación de ingresos del locatario.\n2 garantes con justificación de ingresos.\n\nUna alternativa práctica para quienes buscan un departamento de bajo mantenimiento, distribución funcional y buena ubicación en zona Sportiva.",
+      "fotos": [
+        "/assets/img/whatsapp-image-2026-08-20-at-20.37.38.jpeg",
+        "/assets/img/whatsapp-image-2026-08-20-at-20.37.39.jpeg",
+        "/assets/img/whatsapp-image-2026-068-20-at-20.37.39.jpeg",
+        "/assets/img/whatsapp-image-2026-08-20-at-20.37.40.jpeg",
+        "/assets/img/whatsapp-image-2026-08-20-at-20.376.40.jpeg",
+        "/assets/img/whatsapp-image-2026-08-20-at-20.37.41.jpeg",
+        "/assets/img/whatsapp-image-2026-08-20-at-206.37.39.jpeg",
+        "/assets/img/whatsapp-image-2026-08-20-at-20.374.40.jpeg"
+      ],
+      "direccion": "General Alvear 1768",
+      "estadoOperacion": "Disponible",
+      "antiguedad": "5 a 10 años",
+      "banos": 1,
+      "tipo": "Departamento",
+      "moneda": "ARS",
+      "operacion": "alquiler",
+      "dormitorios": 1,
+      "titulo": "Departamento de 1 dormitorio, Parque de Mayo – Alvear 1768 🏙️",
+      "destacada": false,
+      "expensas": 40000
     }
   ]
 }
