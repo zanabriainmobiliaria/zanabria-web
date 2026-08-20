@@ -8,13 +8,21 @@
   [headers.values]
     X-Robots-Tag = "noindex"
 
-# Las fotos se cachean, los datos no (para que un cambio del panel se vea al toque)
+# Las fotos y los datos se revalidan siempre.
+# Antes las fotos se guardaban 7 días en el navegador: si alguien entraba
+# justo antes de que subieras una, le quedaba guardado el error y no la veía
+# más. Con esto, el navegador pregunta cada vez si hay algo nuevo.
 [[headers]]
   for = "/assets/img/*"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
   for = "/data/*"
   [headers.values]
     Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
