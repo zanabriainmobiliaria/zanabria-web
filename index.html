@@ -1419,6 +1419,15 @@ const DEFAULTS = {
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") cerrarMenu(); });
   }
 
+  /* ---------- Si una foto no carga, ponemos la placa provisoria ---------- */
+  document.addEventListener("error", (e) => {
+    const el = e.target;
+    if (!el || el.tagName !== "IMG" || el.dataset.fallo === "1") return;
+    if (el.closest(".logo") || el.classList.contains("logo-pie")) return;
+    el.dataset.fallo = "1";
+    el.src = portada(el.alt || "foto", el.src || el.alt, "FOTO NO DISPONIBLE");
+  }, true);
+
   /* ---------- La barra se esconde al bajar y vuelve al subir ---------- */
   const barra = $("#nav");
   if (barra) {
