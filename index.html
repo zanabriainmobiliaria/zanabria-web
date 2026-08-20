@@ -125,6 +125,8 @@ strong{font-weight:700;color:var(--blanco)}
 .btn--solido{--bg:var(--navy);--fg:var(--blanco);--bd:var(--navy)}
 .btn--solido:hover{--bg:var(--steel);--bd:var(--steel);--fg:var(--blanco)}
 .btn--chico{padding:11px 18px;font-size:11.5px}
+.btn--plata{--bg:#C7CDD4;--fg:#0A1628;--bd:#C7CDD4}
+.btn--plata:hover{--bg:#E4E8EC;--bd:#E4E8EC;--fg:#0A1628}
 .btn--full{width:100%}
 .btn svg{width:16px;height:16px;flex:none}
 .acciones{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(26px,3.5vw,38px)}
@@ -500,6 +502,14 @@ strong{font-weight:700;color:var(--blanco)}
 .consulta__grid{display:grid;gap:14px}
 @media (min-width:560px){.consulta__grid{grid-template-columns:repeat(2,1fr)}.consulta__grid .campo--ancho{grid-column:1/-1}}
 .consulta textarea{resize:vertical;font-family:var(--tipo);line-height:1.5}
+.persona{
+  display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between;
+  margin-top:clamp(30px,4vw,44px);padding:clamp(22px,3vw,30px);
+  border:1px solid rgba(133,183,235,.24);border-radius:var(--r);background:rgba(133,183,235,.06);
+}
+.persona h3{font-size:clamp(1.4rem,3vw,2rem)}
+.persona p{max-width:56ch;font-size:15.5px;line-height:1.6}
+.persona .btn{flex:none}
 .proyecto__sub{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);margin-top:10px}
 </style>
 </head>
@@ -514,10 +524,10 @@ strong{font-weight:700;color:var(--blanco)}
     </a>
     <nav class="nav__links" aria-label="Secciones">
       <a href="#propiedades">Propiedades</a>
-      <a href="#busqueda">Búsqueda personalizada</a>
+      <a href="#busqueda">Te ayudamos a buscar</a>
       <a href="#vender">Vender</a>
-      <a href="#administracion">Administración</a>
-      <a href="#pozo">En pozo</a>
+      <a href="#administracion">Alquilamos tu propiedad</a>
+      <a href="#pozo">Pozo</a>
       <a href="#nosotros">Nosotros</a>
       <a href="#agenda">Agendar</a>
     </nav>
@@ -528,24 +538,23 @@ strong{font-weight:700;color:var(--blanco)}
   </div>
   <nav class="accesos" aria-label="Accesos rápidos">
     <a href="#propiedades">Propiedades</a>
-    <a href="#busqueda">Te la buscamos</a>
+    <a href="#busqueda">Te ayudamos a buscar</a>
     <a href="#vender">Vender</a>
-    <a href="#administracion">Administración</a>
-    <a href="#pozo">En pozo</a>
+    <a href="#administracion">Alquilamos tu propiedad</a>
+    <a href="#pozo">Pozo</a>
     <a href="#nosotros">Nosotros</a>
     <a href="#agenda">Agendar</a>
   </nav>
 </header>
 
 <div class="menu" id="menu">
-  <a href="#propiedades">Propiedades <em>01</em></a>
-  <a href="#busqueda">Búsqueda personalizada <em>02</em></a>
-  <a href="#nosotros">Nosotros <em>03</em></a>
-  <a href="#vender">Vender <em>04</em></a>
-  <a href="#administracion">Administración <em>05</em></a>
-  <a href="#pozo">En pozo y tour 3D <em>06</em></a>
-  <a href="#numeros">Números <em>07</em></a>
-  <a href="#agenda">Agendar una llamada <em>08</em></a>
+  <a href="#propiedades">Propiedades</a>
+  <a href="#busqueda">Te ayudamos a buscar</a>
+  <a href="#nosotros">Nosotros</a>
+  <a href="#vender">Vender</a>
+  <a href="#administracion">Alquilamos tu propiedad</a>
+  <a href="#pozo">Pozo</a>
+  <a href="#agenda">Agendar una llamada</a>
   <a class="btn" data-wa="Hola, entré a la web de Zanabria Inmobiliaria y quería hacer una consulta." href="#">Escribir por WhatsApp</a>
 </div>
 
@@ -661,15 +670,15 @@ strong{font-weight:700;color:var(--blanco)}
         <div class="canales">
           <a class="canal" data-wa="Hola, quiero que me ayuden a encontrar una propiedad. Estoy buscando…" href="#">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            <b>WhatsApp</b><span>Respuesta el mismo día.</span>
+            <b>WhatsApp</b><span>Respuestas todo el día.</span>
           </a>
-          <a class="canal" data-tel href="#">
+          <a class="canal" data-tel-bautista href="#">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
             <b>Llamar ahora</b><span>Si preferís hablarlo de una.</span>
           </a>
           <a class="canal" href="#agenda">
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></svg>
-            <b>Agendar</b><span>Elegís el horario y te llamo.</span>
+            <b>Agendar</b><span>Elegís el horario y te llamamos.</span>
           </a>
         </div>
       </div>
@@ -721,20 +730,49 @@ strong{font-weight:700;color:var(--blanco)}
   <div class="circ circ--linea" style="width:min(56vw,460px);aspect-ratio:1;top:-18%;right:-16%"></div>
   <div class="env">
     <span class="kicker">Administración de alquileres</span>
-    <h2>Administramos<br>tu propiedad.</h2>
+    <h2>Alquilamos<br>tu propiedad.</h2>
     <p class="plomo">
-      Tomamos tu casa o departamento, lo publicamos y lo movemos hasta encontrar inquilino.
-      Sin números inflados: consultas reales, visitas reales. Después nos ocupamos del contrato,
-      del cobro mensual y de que tu plata esté a tiempo donde tiene que estar.
+      Alquilar por tu cuenta parece más barato hasta que sumás las horas, las publicaciones, las visitas
+      con desconocidos, el contrato mal redactado y los meses que la propiedad estuvo vacía.
+      Nosotros nos ocupamos de todo eso y vos cobrás la renta.
     </p>
+
+    <ul class="promesas" style="margin-top:clamp(28px,4vw,40px)">
+      <li><svg viewBox="0 0 24 24" stroke-linecap="square"><path d="m4 12 5 5L20 6"/></svg>
+        <span><strong>Te ahorrás los costos de gestión.</strong> Publicaciones, fotos, visitas, redacción del contrato y trámites: todo va por nuestra cuenta.</span></li>
+      <li><svg viewBox="0 0 24 24" stroke-linecap="square"><path d="m4 12 5 5L20 6"/></svg>
+        <span><strong>Se alquila más rápido.</strong> Cada mes vacío te cuesta un alquiler entero. Movemos la propiedad en portales, redes y esta web hasta llenarla.</span></li>
+      <li><svg viewBox="0 0 24 24" stroke-linecap="square"><path d="m4 12 5 5L20 6"/></svg>
+        <span><strong>Precios competitivos.</strong> Somos una inmobiliaria chica y nuestros honorarios lo reflejan.</span></li>
+      <li><svg viewBox="0 0 24 24" stroke-linecap="square"><path d="m4 12 5 5L20 6"/></svg>
+        <span><strong>Te sacás los dolores de cabeza.</strong> El reclamo por la pérdida de agua, el ajuste que hay que calcular, el inquilino que se atrasa: eso lo manejamos nosotros.</span></li>
+      <li><svg viewBox="0 0 24 24" stroke-linecap="square"><path d="m4 12 5 5L20 6"/></svg>
+        <span><strong>Como lo pide la ley.</strong> En la provincia de Buenos Aires la intermediación inmobiliaria solo puede hacerla un corredor matriculado (Ley 10.973). Ignacio Zanabria lo es, matrícula 2061.</span></li>
+    </ul>
+
     <div class="pasos">
       <div class="paso"><h3>Publicamos y difundimos</h3><p>Fotos, video y publicación en portales, redes y esta web. Todo el movimiento es orgánico y real.</p></div>
       <div class="paso"><h3>Filtramos interesados</h3><p>Mostramos la propiedad, revisamos garantías y antecedentes, y te presentamos solo lo que pasa el filtro.</p></div>
       <div class="paso"><h3>Firmamos el contrato</h3><p>Redactamos, coordinamos la firma, hacemos el inventario y entregamos las llaves.</p></div>
       <div class="paso"><h3>Cobramos y te pagamos</h3><p>Cobramos el alquiler todos los meses, seguimos los ajustes y te transferimos o te bajamos el efectivo. Vos mirás el resumen.</p></div>
     </div>
+
+    <div class="persona">
+      <div>
+        <span class="kicker" style="margin-bottom:10px">A cargo de administración</span>
+        <h3>Andrea</h3>
+        <p style="margin-top:12px;opacity:.85">
+          Es la que atiende cuando algo pasa: una filtración, una duda con el ajuste, un pago que no aparece.
+          No hay que esperar a que alguien vuelva de una visita para tener respuesta.
+        </p>
+      </div>
+      <a class="btn btn--linea" data-wa-andrea="Hola Andrea, te consulto por la administración de una propiedad." href="#">
+        Escribirle a Andrea · <span data-tel-andrea></span>
+      </a>
+    </div>
+
     <div class="acciones">
-      <a class="btn" data-wa="Hola, tengo una propiedad y quiero que la administren. ¿Me cuentan cómo trabajan?" href="#">Quiero que administren la mía</a>
+      <a class="btn" data-wa-bautista="Hola, tengo una propiedad y quiero que la administren. ¿Me cuentan cómo trabajan?" href="#">Quiero que administren la mía</a>
       <a class="btn btn--linea" href="#agenda">Agendar una llamada</a>
     </div>
   </div>
@@ -750,6 +788,11 @@ strong{font-weight:700;color:var(--blanco)}
       Comprar en pozo es pagar el precio más bajo que esa unidad va a tener en su vida. El problema siempre
       fue imaginarse el resultado. Ahora no: entrás al recorrido 3D desde el navegador, sin descargar nada,
       y caminás la unidad terminada.
+    </p>
+    <p class="plomo">
+      La otra ventaja es cómo se paga: hay financiación directa, con un anticipo y el saldo en cuotas
+      durante la obra. No hace falta tener el total ni pedir un crédito. Los proyectos se entregan
+      en un plazo aproximado de dos años.
     </p>
 
     <div class="acciones">
@@ -769,20 +812,18 @@ strong{font-weight:700;color:var(--blanco)}
     </div>
 
     <div id="proyectos"></div>
-  </div>
-</section>
 
-<!-- ===================== NÚMEROS ===================== -->
-<section class="sec sec--navy" id="numeros">
-  <div class="env">
-    <span class="kicker">Números verificables</span>
-    <h2>Lo que decimos,<br>medido.</h2>
-    <p class="plomo">
-      Si vamos a decir que llegamos a mucha gente, mostramos cuánta. Estos datos salen de las métricas
-      de Instagram y de las visitas a esta web.
-    </p>
-    <div class="kpis" id="kpisNumeros"></div>
-    <div class="acciones" id="verificacion"></div>
+    <div class="persona" style="margin-top:clamp(34px,5vw,52px)">
+      <div>
+        <span class="prox" style="margin-bottom:14px">Próximamente</span>
+        <h3 style="margin-top:14px">Comunidad de WhatsApp</h3>
+        <p style="margin-top:12px">
+          Estamos armando un grupo para avisar primero cuando se abre un proyecto nuevo, cuando sube
+          la etapa de obra o cuando queda una unidad liberada. Dejanos tu número y te sumamos apenas esté.
+        </p>
+      </div>
+      <a class="btn btn--solido" data-wa-bautista="Hola, quiero que me sumen a la comunidad de WhatsApp de proyectos en pozo." href="#">Quiero que me sumen</a>
+    </div>
   </div>
 </section>
 
@@ -794,20 +835,23 @@ strong{font-weight:700;color:var(--blanco)}
         <span class="kicker">Sobre este sitio</span>
         <h2>Por qué existe<br>esta web.</h2>
         <p class="plomo">
-          Soy <strong data-autor-nombre>Bautista</strong>. <span data-autor-rol></span>
+          Soy <strong>Bautista</strong>. Manejo la comunicación digital de Zanabria Inmobiliaria y trabajo
+          en ventas y alquileres: las campañas para difundir las propiedades, la producción del contenido
+          con el que presentamos cada unidad disponible, y los canales por los que entran las consultas de
+          venta y alquiler. También recorro departamentos de vez en cuando.
         </p>
         <p class="plomo">
           Armé esta página para que el que llega desde Instagram encuentre todo junto: las propiedades,
-          los proyectos y la forma de escribirnos, sin tener que preguntar el precio por mensaje privado.
+          los proyectos y la forma de escribirnos. Así evacuamos las dudas mucho más rápido.
         </p>
         <p class="plomo">
-          Y seamos honestos: esta web corre sobre una plataforma gratuita y un hosting básico. Es a propósito.
-          Preferimos salir simple, ver qué funciona y mejorarla con lo que aprendamos, antes que pasar meses
-          puliendo algo que nadie usa. Esta es la versión 1 y se nota.
+          Esta web corre sobre un hosting básico. Es a propósito. Preferimos salir simple, ver qué funciona
+          y mejorarla sobre la marcha, antes que pasar meses puliendo algo que nadie usa. Esta es la
+          versión 1 y se nota.
         </p>
         <p class="plomo">
-          Ah, y sí: cada tanto paso por propiedades que mostramos con algún colega, solo para ver cómo
-          quedaron. Nosotros le decimos seguimiento. Los vecinos le dicen otra cosa.
+          Ah, y sí: cada tanto paso con Ignacio por propiedades que mostramos con algún colega, solo para
+          ver cómo quedaron. Nosotros le decimos seguimiento. Los vecinos le dicen otra cosa.
         </p>
       </div>
       <div>
@@ -897,7 +941,10 @@ strong{font-weight:700;color:var(--blanco)}
         <img class="logo-pie" src="logo-zanabria-blanco.png" alt="Zanabria Inmobiliaria">
         <p class="pie__dato" data-marca-direccion></p>
         <p class="pie__dato" style="margin-top:12px"><a data-mapa href="#">Ver en el mapa</a></p>
-        <p class="pie__dato" style="margin-top:12px"><a data-tel href="#" id="telPie"></a></p>
+        <p class="pie__dato" style="margin-top:12px">
+          <a data-tel href="#" id="telPie"></a><br>
+          <a data-tel-bautista href="#" id="telPieBautista"></a>
+        </p>
       </div>
       <div>
         <h4>Contactos directos</h4>
@@ -913,10 +960,10 @@ strong{font-weight:700;color:var(--blanco)}
         <h4>Secciones</h4>
         <ul>
           <li><a href="#propiedades">Propiedades</a></li>
-          <li><a href="#busqueda">Búsqueda personalizada</a></li>
+          <li><a href="#busqueda">Te ayudamos a buscar</a></li>
           <li><a href="#vender">Vender</a></li>
-          <li><a href="#administracion">Administración</a></li>
-          <li><a href="#pozo">En pozo y tour 3D</a></li>
+          <li><a href="#administracion">Alquilamos tu propiedad</a></li>
+          <li><a href="#pozo">Pozo</a></li>
           <li><a href="#agenda">Agendar una llamada</a></li>
         </ul>
       </div>
@@ -974,6 +1021,13 @@ const DEFAULTS = {
     whatsapp: "5492914602001",
     telefono: "+542914602001",
     telefonoVisible: "291 460 2001",
+    /* Segundo contacto: Bautista */
+    whatsappBautista: "5492914317519",
+    telefonoBautista: "+542914317519",
+    telefonoBautistaVisible: "291 431 7519",
+    /* Administración: Andrea */
+    whatsappAndrea: "5492914293289",
+    telefonoAndreaVisible: "291 429 3289",
     instagram: "https://www.instagram.com/zanabriainmobiliaria/",
     instagramUser: "@zanabriainmobiliaria",
     email: "zanabriainmobiliaria@gmail.com"
@@ -1009,9 +1063,9 @@ const DEFAULTS = {
 
   busqueda: {
     imagenes: [
-      { src:"", texto:"Escuchamos qué buscás" },
-      { src:"", texto:"Salimos a buscarlo" },
-      { src:"", texto:"Te acompañamos hasta la llave" }
+      { src:"/assets/img/busqueda-1.jpg", texto:"Escuchamos qué buscás" },
+      { src:"/assets/img/busqueda-2.jpg", texto:"Salimos a buscarlo" },
+      { src:"/assets/img/busqueda-3.jpg", texto:"Te acompañamos hasta la llave" }
     ]
   },
 
@@ -1205,6 +1259,11 @@ const DEFAULTS = {
       if (r[0]) CONFIG = fusionar(CONFIG, r[0]);
       if (r[1] && Array.isArray(r[1].propiedades)) CONFIG.propiedades = r[1].propiedades;
       if (r[2] && Array.isArray(r[2].proyectos)) CONFIG.proyectos = r[2].proyectos;
+      /* si en el panel quedaron vacías, usamos las imágenes que vienen en el archivo */
+      const porDefecto = DEFAULTS.busqueda.imagenes;
+      (CONFIG.busqueda.imagenes || []).forEach((im, i) => {
+        if ((!im.src || !String(im.src).trim()) && porDefecto[i]) im.src = porDefecto[i].src;
+      });
       iniciar();
     }).catch(() => iniciar());
   }
@@ -1220,6 +1279,19 @@ const DEFAULTS = {
     a.setAttribute("target", "_blank"); a.setAttribute("rel", "noopener");
   });
   const tel = String(CONFIG.marca.telefono || "").replace(/[^\d+]/g, "");
+  const telB = String(CONFIG.marca.telefonoBautista || "").replace(/[^\d+]/g, "");
+  const waB = String(CONFIG.marca.whatsappBautista || "").replace(/\D/g, "");
+  const waA = String(CONFIG.marca.whatsappAndrea || "").replace(/\D/g, "");
+  const waCon = (numero, m) => "https://wa.me/" + numero + "?text=" + encodeURIComponent(m);
+  $$("[data-tel-bautista]").forEach((a) => { if (telB) a.setAttribute("href", "tel:" + telB); });
+  $$("[data-wa-bautista]").forEach((a) => {
+    a.setAttribute("href", waCon(waB, a.getAttribute("data-wa-bautista")));
+    a.setAttribute("target", "_blank"); a.setAttribute("rel", "noopener");
+  });
+  $$("[data-wa-andrea]").forEach((a) => {
+    a.setAttribute("href", waCon(waA, a.getAttribute("data-wa-andrea")));
+    a.setAttribute("target", "_blank"); a.setAttribute("rel", "noopener");
+  });
   $$("[data-tel]").forEach((a) => {
     if (tel) a.setAttribute("href", "tel:" + tel);
     else a.closest("li") && a.closest("li").remove();
@@ -1251,11 +1323,17 @@ const DEFAULTS = {
       e.setAttribute("target", "_blank"); e.setAttribute("rel", "noopener");
     } else if (e.parentElement) { e.parentElement.style.display = "none"; }
   });
+  $$("[data-tel-andrea]").forEach((e) => { e.textContent = CONFIG.marca.telefonoAndreaVisible || ""; });
   const telPie = $("#telPie");
   if (telPie) {
     const visible = txt(CONFIG.marca.telefonoVisible) || txt(CONFIG.marca.telefono);
     if (visible) telPie.textContent = visible;
     else if (telPie.parentElement) telPie.parentElement.style.display = "none";
+  }
+  const telPieB = $("#telPieBautista");
+  if (telPieB) {
+    const v2 = txt(CONFIG.marca.telefonoBautistaVisible) || txt(CONFIG.marca.telefonoBautista);
+    if (v2) telPieB.textContent = v2; else telPieB.style.display = "none";
   }
   const anio = $("#anio"); if (anio) anio.textContent = new Date().getFullYear();
 
@@ -1625,10 +1703,10 @@ const DEFAULTS = {
               "</div>" +
               '<p class="error" id="cError"></p>' +
               '<div class="acciones" style="margin-top:16px">' +
-                '<button class="btn" type="button" data-envio="wa">Consultar por WhatsApp</button>' +
+                '<button class="btn btn--linea" type="button" data-envio="wa">Consultar por WhatsApp</button>' +
                 (txt(CONFIG.marca.email) ? '<button class="btn btn--linea" type="button" data-envio="mail">Consultar por email</button>' : "") +
               "</div></form>" +
-            '<div class="acciones"><a class="btn btn--linea btn--chico" target="_blank" rel="noopener" href="' +
+            '<div class="acciones"><a class="btn btn--plata btn--chico" target="_blank" rel="noopener" href="' +
               esc(waLink(msg)) + '">Consulta rápida sin formulario</a>' +
               '<a class="btn btn--linea btn--chico" href="#agenda" data-cerrar>Agendar una visita</a></div>') +
       "</div></div>" +
