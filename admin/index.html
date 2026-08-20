@@ -2,7 +2,9 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- El panel es una herramienta de escritorio: declaramos un ancho fijo para que el
+     celular lo muestre entero y se pueda acercar con los dedos sobre cada campo. -->
+<meta name="viewport" content="width=1024, user-scalable=yes, maximum-scale=6, minimum-scale=0.2">
 <meta name="robots" content="noindex, nofollow">
 <title>Panel · Zanabria Inmobiliaria</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A1628'/%3E%3Cpath d='M6 17.5 16 8.5l10 9' fill='none' stroke='%23FFFFFF' stroke-width='3.4' stroke-linecap='square'/%3E%3Crect x='6' y='21' width='20' height='3.4' fill='%235FA8D3'/%3E%3C/svg%3E">
@@ -14,15 +16,38 @@
     color:#D6EAF8;font-family:Inter,Helvetica,Arial,sans-serif;font-size:13px;
     letter-spacing:.2em;text-transform:uppercase;
   }
+  /* Ajustes para usar el panel desde el celular */
+  html{-webkit-text-size-adjust:100%}
+  input,select,textarea{font-size:15px!important}
+  [class*="PreviewPane"],[class*="previewPane"]{display:none!important}
+  [class*="ControlPane"],[class*="controlPane"]{width:100%!important;max-width:100%!important}
+  .aviso-movil{
+    position:fixed;left:0;right:0;bottom:0;z-index:9999;
+    background:#0A1628;color:#D6EAF8;font-family:Inter,Helvetica,Arial,sans-serif;
+    font-size:13px;line-height:1.5;padding:12px 16px;display:none;align-items:center;gap:14px;
+    border-top:1px solid rgba(95,168,211,.4);
+  }
+  .aviso-movil button{
+    margin-left:auto;flex:none;background:#5FA8D3;color:#0A1628;border:0;border-radius:4px;
+    padding:9px 14px;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;
+  }
 </style>
 </head>
 <body>
 <div class="cargando" id="cargando">Abriendo el panel…</div>
+<div class="aviso-movil" id="avisoMovil">
+  Pellizcá para acercarte a cada campo. Girando el teléfono se ve más cómodo.
+  <button type="button" onclick="this.parentElement.style.display='none'">Entendido</button>
+</div>
 <script src="https://unpkg.com/decap-cms@^3.8.4/dist/decap-cms.js"></script>
 <script>
   window.addEventListener("load", function () {
     var c = document.getElementById("cargando");
     if (c) setTimeout(function () { c.style.display = "none"; }, 1200);
+    if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) {
+      var a = document.getElementById("avisoMovil");
+      if (a) setTimeout(function () { a.style.display = "flex"; }, 1600);
+    }
   });
 </script>
 </body>
