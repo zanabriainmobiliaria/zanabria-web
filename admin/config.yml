@@ -22,6 +22,18 @@ locale: es
 publish_mode: simple
 media_folder: assets/img
 public_folder: /assets/img
+
+# --- SUBIR MUCHAS FOTOS DE UNA SOLA VEZ (opcional) ---
+# El selector de imágenes que viene incluido solo deja elegir de a una.
+# Si creás una cuenta gratis en cloudinary.com, descomentá estas cinco líneas
+# y pegá tus datos: vas a poder seleccionar 20 fotos juntas y además no se
+# guardan en GitHub, así el repositorio no se llena de imágenes.
+# media_library:
+#   name: cloudinary
+#   config:
+#     cloud_name: TU_CLOUD_NAME
+#     api_key: TU_API_KEY
+#     multiple: true
 logo_url: /logo-zanabria-blanco.png
 
 collections:
@@ -49,12 +61,13 @@ collections:
             fields:
 
               # --- Estado y visibilidad ---
-              - { label: 'Publicada en la web', name: activa, widget: boolean, default: true, hint: 'Apagalo para sacarla de la web sin borrar los datos.' }
+              - { label: 'Publicada en la web', name: activa, widget: boolean, default: true, required: false, hint: 'Apagalo para sacarla de la web sin borrar los datos.' }
               - { label: 'Destacada', name: destacada, widget: boolean, default: false, required: false, hint: 'Aparece primera y con etiqueta.' }
               - label: 'Estado de la operación'
                 name: estadoOperacion
                 widget: select
                 default: Disponible
+                required: false
                 options: [Disponible, Reservada, Vendida, Alquilada]
               - label: 'Fecha en que se cerró'
                 name: fechaEstado
@@ -72,12 +85,14 @@ collections:
                 name: operacion
                 widget: select
                 default: venta
+                required: false
                 options:
                   - { label: 'Venta', value: venta }
                   - { label: 'Alquiler', value: alquiler }
               - label: 'Tipo de propiedad'
                 name: tipo
                 widget: select
+                required: false
                 options: [Casa, Departamento, PH, Dúplex, Local, Oficina, Galpón, Terreno, Quinta, Campo, Cochera]
               - { label: 'Título', name: titulo, widget: string, hint: 'Ej: Casa en Las Ballenas 200, Dufaur' }
 
@@ -91,6 +106,7 @@ collections:
                 name: moneda
                 widget: select
                 default: USD
+                required: false
                 options:
                   - { label: 'Dólares (US$)', value: USD }
                   - { label: 'Pesos ($)', value: ARS }
@@ -143,8 +159,8 @@ collections:
                 name: fotos
                 widget: list
                 required: false
-                field: { label: Foto, name: foto, widget: image }
-                hint: 'La primera es la portada. Podés subirlas de cualquier tamaño; se recortan solas.'
+                field: { label: Foto, name: foto, widget: image, required: false }
+                hint: 'La primera es la portada. Se suben de a una: tocá "Add Foto", elegí la imagen y repetí. Publicá cada 5 o 6 fotos para no perder trabajo.'
               - { label: 'Video de YouTube (ID)', name: videoYoutube, widget: string, required: false, hint: 'Solo el código que va después de v= o de youtu.be/' }
               - { label: 'Link del recorrido 3D', name: tour3d, widget: string, required: false, hint: 'Si lo dejás vacío, la ficha muestra "Tour 3D · Próximamente".' }
 
@@ -165,12 +181,13 @@ collections:
             collapsed: true
             summary: '{{fields.nombre}}'
             fields:
-              - { label: 'Publicado en la web', name: activo, widget: boolean, default: true }
+              - { label: 'Publicado en la web', name: activo, widget: boolean, default: true, required: false }
               - { label: 'Nombre del proyecto', name: nombre, widget: string }
               - label: 'Estado de la obra'
                 name: estado
                 widget: select
                 default: 'En construcción'
+                required: false
                 options: ['En pozo', 'En construcción', 'En terminaciones', 'Próximo a entregar', 'Entregado']
               - { label: 'Ubicación', name: ubicacion, widget: string, required: false }
               - { label: 'Fecha de entrega', name: entrega, widget: string, required: false, hint: 'Ej: Entrega estimada 2027' }
@@ -182,24 +199,24 @@ collections:
                 collapsed: false
                 summary: '{{fields.valor}} · {{fields.etiqueta}}'
                 fields:
-                  - { label: 'Número', name: valor, widget: string, hint: 'Ej: 24, 38 m², 60' }
-                  - { label: 'Qué mide', name: etiqueta, widget: string, hint: 'Ej: Unidades, m² desde, Cuotas' }
+                  - { label: 'Número', name: valor, widget: string, required: false, hint: 'Ej: 24, 38 m², 60' }
+                  - { label: 'Qué mide', name: etiqueta, widget: string, required: false, hint: 'Ej: Unidades, m² desde, Cuotas' }
               - label: 'Ventajas'
                 name: ventajas
                 widget: list
                 required: false
-                field: { label: Ventaja, name: ventaja, widget: string }
+                field: { label: Ventaja, name: ventaja, widget: string, required: false }
               - { label: 'Financiación', name: financiacion, widget: text, required: false }
               - label: 'Renders'
                 name: renders
                 widget: list
                 required: false
-                field: { label: Render, name: render, widget: image }
+                field: { label: Render, name: render, widget: image, required: false }
               - label: 'Fotos de la obra hoy'
                 name: obra
                 widget: list
                 required: false
-                field: { label: Foto, name: foto, widget: image }
+                field: { label: Foto, name: foto, widget: image, required: false }
               - { label: 'Link del recorrido 3D', name: tour3d, widget: string, required: false, hint: 'Vacío = muestra "Recorrido 3D · Próximamente".' }
 
   # =====================================================================
