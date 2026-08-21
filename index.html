@@ -511,6 +511,57 @@ strong{font-weight:700;color:var(--blanco)}
 .persona p{max-width:56ch;font-size:15.5px;line-height:1.6}
 .persona .btn{flex:none}
 .proyecto__sub{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);margin-top:10px}
+
+/* ==========================================================================
+   TEXTURA DE OBRA — grano, hormigón, ladrillo y plano
+   Todo dibujado por CSS: no agrega ni un kilobyte de imágenes.
+   ========================================================================== */
+
+/* 1. Grano general, como una impresión sobre papel */
+body::after{
+  content:"";position:fixed;inset:0;z-index:200;pointer-events:none;opacity:.055;
+  mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23r)'/%3E%3C/svg%3E");
+}
+
+/* 2. Hormigón: manchas irregulares en las secciones oscuras */
+.sec--navy,.hero,.pie{position:relative}
+.sec--navy::before,.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;
+  background-image:
+    radial-gradient(ellipse 60% 40% at 18% 12%, rgba(133,183,235,.07), transparent 60%),
+    radial-gradient(ellipse 45% 55% at 82% 30%, rgba(27,73,101,.35), transparent 62%),
+    radial-gradient(ellipse 70% 35% at 40% 88%, rgba(133,183,235,.05), transparent 65%),
+    radial-gradient(ellipse 30% 30% at 92% 78%, rgba(27,73,101,.28), transparent 60%);
+}
+
+/* 3. Ladrillo: hiladas apenas visibles en el pie */
+.pie::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60' viewBox='0 0 120 60'%3E%3Cg fill='none' stroke='%2385B7EB' stroke-width='1.4'%3E%3Cpath d='M0 .7h120M0 30.7h120M0 59.3h120'/%3E%3Cpath d='M30 0v30M90 0v30M60 30v30M0 30v30M120 30v30'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* 4. Plano de obra: grilla técnica en las secciones claras */
+.sec--claro::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;z-index:0;
+  background-image:
+    linear-gradient(rgba(27,73,101,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27,73,101,.055) 1px, transparent 1px),
+    linear-gradient(rgba(27,73,101,.11) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27,73,101,.11) 1px, transparent 1px);
+  background-size:28px 28px,28px 28px,140px 140px,140px 140px;
+}
+
+/* 5. Ciudad: perfil de edificios al pie del hero */
+.hero__ciudad{
+  position:absolute;left:0;right:0;bottom:0;height:clamp(90px,16vw,190px);
+  pointer-events:none;z-index:0;opacity:.16;
+  background-repeat:repeat-x;background-position:bottom center;background-size:auto 100%;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='260' viewBox='0 0 1200 260' preserveAspectRatio='xMidYMax meet'%3E%3Cg fill='%231B4965'%3E%3Crect x='0' y='150' width='90' height='110'/%3E%3Crect x='96' y='96' width='64' height='164'/%3E%3Crect x='166' y='180' width='110' height='80'/%3E%3Crect x='282' y='60' width='78' height='200'/%3E%3Crect x='366' y='128' width='96' height='132'/%3E%3Crect x='470' y='168' width='70' height='92'/%3E%3Crect x='548' y='40' width='86' height='220'/%3E%3Crect x='642' y='142' width='120' height='118'/%3E%3Crect x='770' y='100' width='72' height='160'/%3E%3Crect x='850' y='186' width='104' height='74'/%3E%3Crect x='962' y='74' width='80' height='186'/%3E%3Crect x='1050' y='156' width='150' height='104'/%3E%3C/g%3E%3Cg fill='%230A1628' opacity='.85'%3E%3Cpath d='M110 96h8v-26h-8zM572 40h8V8h-8zM984 74h7V50h-7z'/%3E%3C/g%3E%3Cg fill='%235FA8D3' opacity='.5'%3E%3Crect x='300' y='84' width='9' height='12'/%3E%3Crect x='318' y='84' width='9' height='12'/%3E%3Crect x='300' y='108' width='9' height='12'/%3E%3Crect x='566' y='64' width='9' height='12'/%3E%3Crect x='584' y='64' width='9' height='12'/%3E%3Crect x='566' y='90' width='9' height='12'/%3E%3Crect x='980' y='98' width='9' height='12'/%3E%3Crect x='998' y='98' width='9' height='12'/%3E%3Crect x='118' y='120' width='9' height='12'/%3E%3Crect x='136' y='120' width='9' height='12'/%3E%3Crect x='790' y='124' width='9' height='12'/%3E%3Crect x='808' y='124' width='9' height='12'/%3E%3C/g%3E%3C/svg%3E");
+}
+@media (prefers-reduced-motion:no-preference){
+  .hero__ciudad{transition:opacity .8s ease}
+}
 </style>
 </head>
 <body>
@@ -564,6 +615,7 @@ strong{font-weight:700;color:var(--blanco)}
 <section class="hero">
   <div class="circ circ--linea" style="width:min(70vw,620px);aspect-ratio:1;top:-24%;right:-14%"></div>
   <div class="circ circ--linea" style="width:min(46vw,380px);aspect-ratio:1;bottom:-22%;left:-12%"></div>
+  <div class="hero__ciudad" aria-hidden="true"></div>
   <div class="env">
     <span class="kicker">Zanabria Inmobiliaria</span>
     <h1>La casa que<br>buscás <span>existe.</span></h1>
