@@ -30,7 +30,7 @@
       ],
       "direccion": "Avenida Colón 233",
       "cocheras": 1,
-      "estadoOperacion": "Disponible",
+      "estadoOperacion": "Alquilada",
       "antiguedad": "",
       "banos": 2,
       "tipo": "Departamento",
@@ -40,7 +40,7 @@
       "operacion": "alquiler",
       "dormitorios": 4,
       "titulo": "Departamento 6 ambientes apto profesional",
-      "destacada": true,
+      "destacada": false,
       "id": "AL-001",
       "servicios": null,
       "expensas": ""
@@ -136,7 +136,7 @@
         "/assets/img/img_1998.jpg"
       ],
       "direccion": "Lamadrid 62",
-      "estadoOperacion": "Disponible",
+      "estadoOperacion": "Alquilada",
       "banos": 1,
       "tipo": "Departamento",
       "estadoConservacion": "Muy bueno",
@@ -228,7 +228,7 @@
         "/assets/img/captura-de-pantalla-2026-08-20-194700.png"
       ],
       "direccion": "Primera Junta 523",
-      "estadoOperacion": "Reservada",
+      "estadoOperacion": "Vendida",
       "antiguedad": "10 a 20 años",
       "banos": 1,
       "tipo": "Departamento",
