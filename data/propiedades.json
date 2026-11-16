@@ -334,6 +334,68 @@
       "titulo": "Departamento de 1 dormitorio, Parque de Mayo – Alvear 1768 🏙️",
       "destacada": false,
       "expensas": 40000
+    },
+    {
+      "activa": true,
+      "barrio": "Centro",
+      "ambientes": 1,
+      "precio": 450,
+      "localidad": "Bahía Blanca",
+      "descripcion": "🏙️ **MONOAMBIENTE EN ALQUILER | ZELARRAYÁN 441**\n\nDepartamento ubicado en pleno centro de Bahía Blanca, en **piso 12, departamento G**, con acceso por ascensor.\n\n📍 **Zelarrayán 441**\n\n**Características:**\n- Ambiente único.\n- Baño completo.\n- Calefactor a gas.\n- Piso 12.\n- Edificio con ascensor.\n\n💰 **Alquiler mensual: $450.000**\n💰 **Expensas aproximadas: $95.000**\n\n**Requisitos para alquilar:**\n- 2 garantes.\n- Justificación de ingresos de quien alquila.\n\n📩 Para más información o coordinar una visita, comunicate con nosotros.\n\n**Inmobiliaria Zanabria** 🏡",
+      "fotos": [
+        "/assets/img/eawaewwdwd.png",
+        "/assets/img/editable-publicación.pngsvesvees.png",
+        "/assets/img/editable-publicación.pngesesf.png",
+        "/assets/img/editable-publicación.pngesjnhscub.png",
+        "/assets/img/editable-publicación.pngtyy.png",
+        "/assets/img/editable-publicación.pngesfesgefse.png",
+        "/assets/img/editable-publicación.pngsvsedecs.png"
+      ],
+      "direccion": "Zelarrayan 441",
+      "estadoOperacion": "Disponible",
+      "banos": 1,
+      "tipo": "Departamento",
+      "moneda": "ARS",
+      "operacion": "alquiler",
+      "dormitorios": 0,
+      "titulo": "Funcional en Zelarrayan 441",
+      "destacada": false,
+      "expensas": 95
+    },
+    {
+      "activa": true,
+      "barrio": "Universitario",
+      "ambientes": 2,
+      "precio": 650000,
+      "localidad": "Bahia Blanca",
+      "descripcion": "🏡 **DEPARTAMENTO EN ALQUILER | BARRIO UNIVERSITARIO**\n\n📍 **Zapiola 1451, Bahía Blanca**\n\nDepartamento en planta baja, ubicado en Barrio Universitario, con ambientes cómodos y patio propio.\n\n**Características:**\n▪️ 1 dormitorio con placard.\n▪️ Living comedor.\n▪️ Cocina separada con lavadero.\n▪️ 1 baño.\n▪️ Patio propio.\n▪️ 46 m² de superficie total.\n\n💰 **Alquiler mensual: $650.000**\n💰 **Expensas aproximadas: $55.000**\n\n📋 **Condiciones del alquiler:**\n• Contrato por 24 meses.\n• Ajuste cuatrimestral por ICL.\n• Honorarios inmobiliarios: 4%.\n• Certificación de firmas: $25.000 cada una.\n• Depósito de garantía mediante Pagares.\n\n**Requisitos:**\n✅ Justificación de ingresos del inquilino.\n✅ 2 garantes.\n\n📩 Para más información o coordinar una visita, comunicate con nosotros.\n\n**Inmobiliaria Zanabria**\n📞 2914317519",
+      "fotos": [
+        "/assets/img/eaawdwdqwad.png",
+        "/assets/img/editable-publicación.pngjmowcw.png",
+        "/assets/img/editable-publicación.pngfewkomowfemfw.png",
+        "/assets/img/editable-publicación.pngijremoeses.png",
+        "/assets/img/editable-publicación.pngkepfew-ew.png",
+        "/assets/img/editable-publicación.pngfewkoesmes.png",
+        "/assets/img/editable-publicación.pngijmseksek.png",
+        "/assets/img/editable-publicación.pngcdsjisem.png",
+        "/assets/img/editable-publicación.pngmosel.png",
+        "/assets/img/editable-publicación.pngcamosc.png",
+        "/assets/img/editable-publicación.pngsemosse.png",
+        "/assets/img/editable-publicación.pngkojmscos.png",
+        "/assets/img/editable-publicación.pngomseslesv.png"
+      ],
+      "direccion": "Zapiola 1451",
+      "estadoOperacion": "Disponible",
+      "antiguedad": "Mayor a 20 años",
+      "banos": 1,
+      "tipo": "Departamento",
+      "moneda": "ARS",
+      "supTotal": 46,
+      "operacion": "alquiler",
+      "dormitorios": 1,
+      "titulo": "Departamento en Zapiola 1451",
+      "destacada": false,
+      "expensas": 55000
     }
   ]
 }
