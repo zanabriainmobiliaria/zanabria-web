@@ -176,7 +176,7 @@
       "supCubierta": 143,
       "activa": true,
       "barrio": "San Ignacio",
-      "precio": 200000,
+      "precio": 190000,
       "localidad": "Bahia Blanca",
       "descripcion": "Casa de 3 dormitorios en San Ignacio 🏡\n\nPropiedad ubicada en Rosales 3300, barrio San Ignacio, frente a la plaza del barrio, en un entorno residencial tranquilo.\n\nLa vivienda cuenta con 4 ambientes, una distribución cómoda y espacios pensados para el uso cotidiano de una familia.\n\nCaracterísticas principales:\n\n3 dormitorios.\n2 baños completos.\nDormitorio principal en suite, con baño privado y escritorio.\n143 m² cubiertos.\n432 m² de superficie total.\nCochera semicubierta.\nAmbientes cómodos y funcionales.\nExcelente estado general.\nAntigüedad estimada: entre 10 y 20 años.\n\n📍 Ubicación residencial frente a plaza, combinando tranquilidad, espacio exterior y comodidad.\n\nLa propiedad se encuentra lista para habitar.",
       "fotos": [
@@ -286,7 +286,7 @@
       "supCubierta": 57,
       "activa": true,
       "barrio": "Pedro Pico",
-      "precio": 550000,
+      "precio": 400000,
       "localidad": "Bahia Blanca",
       "descripcion": "Local comercial en alquiler – Undiano 574 🏢\n\nLocal comercial ubicado en Undiano 574, barrio Pedro Pico, en un sector con buen movimiento vehicular y cercanía al macrocentro de Bahía Blanca.\n\nCaracterísticas principales:\n\n57 m² cubiertos.\n1 baño.\nBuen estado general.\nSector con facilidad de estacionamiento.\nCalle con importante circulación vehicular.\nCercanía al macrocentro.\nAntigüedad superior a 20 años.\n\n💵 Valor inicial: $550.000 mensuales.\n\nCondiciones de alquiler:\n\nContrato por 24 meses.\nAjuste trimestral por IPC CREEBBA.\nHonorarios inmobiliarios: 4% + sellado de contrato.\nJustificación de ingresos del solicitante.\n2 garantes con justificación de ingresos.\nDepósito de garantía mediante pagaré.\n\nUna alternativa funcional para uso comercial, profesional o de servicios, con buena accesibilidad y exposición por su ubicación.",
       "fotos": [
@@ -339,7 +339,7 @@
       "activa": true,
       "barrio": "Centro",
       "ambientes": 1,
-      "precio": 450,
+      "precio": 450000,
       "localidad": "Bahía Blanca",
       "descripcion": "🏙️ **MONOAMBIENTE EN ALQUILER | ZELARRAYÁN 441**\n\nDepartamento ubicado en pleno centro de Bahía Blanca, en **piso 12, departamento G**, con acceso por ascensor.\n\n📍 **Zelarrayán 441**\n\n**Características:**\n- Ambiente único.\n- Baño completo.\n- Calefactor a gas.\n- Piso 12.\n- Edificio con ascensor.\n\n💰 **Alquiler mensual: $450.000**\n💰 **Expensas aproximadas: $95.000**\n\n**Requisitos para alquilar:**\n- 2 garantes.\n- Justificación de ingresos de quien alquila.\n\n📩 Para más información o coordinar una visita, comunicate con nosotros.\n\n**Inmobiliaria Zanabria** 🏡",
       "fotos": [
@@ -360,7 +360,7 @@
       "dormitorios": 0,
       "titulo": "Funcional en Zelarrayan 441",
       "destacada": false,
-      "expensas": 95
+      "expensas": 95000
     },
     {
       "activa": true,
@@ -396,6 +396,39 @@
       "titulo": "Departamento en Zapiola 1451",
       "destacada": false,
       "expensas": 55000
+    },
+    {
+      "supCubierta": 30,
+      "activa": true,
+      "barrio": "Centro",
+      "ambientes": 2,
+      "precio": 65000,
+      "localidad": "Bahia Blanca",
+      "descripcion": "**DEPARTAMENTO EN VENTA | HIPÓLITO YRIGOYEN 227**\n\nUbicado en pleno centro de Bahía Blanca, sobre calle Hipólito Yrigoyen 227, a pocos metros de comercios, servicios y distintos puntos de interés de la ciudad.\n\nEl departamento se encuentra en un segundo piso por escalera y está completamente renovado, listo para habitar.\n\n**Características de la propiedad:**\n- 1 dormitorio con placard.\n- Cocina comedor.\n- 1 baño completo.\n- Departamento hecho a nuevo.\n- Superficie cubierta de 30 m².\n- Segundo piso por escalera.\n\nPor su ubicación céntrica y sus condiciones, es una alternativa tanto para vivienda propia como para quienes buscan invertir en una propiedad destinada al alquiler.\n\n**Valor de venta: USD 65.000.**\n\nPara más información o coordinar una visita, comunicate con nosotros.\n\n**Zanabria Inmobiliaria**\n2914317519",
+      "fotos": [
+        "/assets/img/whatsapp-image-2026-11-17-at-17.39.39.jpegwecsawe.jpeg",
+        "/assets/img/whatsapp-image-2026-11-17-at-17.39.38.jpegearwsw.jpeg",
+        "/assets/img/awwaweffscz.jpeg",
+        "/assets/img/whatsapp-image-2026-11-17-at-17.39.35.jpeg",
+        "/assets/img/whatsapp-image-2026-11-17-at-17.39.36.jpegfeaedd.jpeg",
+        "/assets/img/whatsapp-image-2026-11-17-at-17.39.38.jpegefscdd.jpeg",
+        "/assets/img/whatsapp-image-2026-11-17-at-17.39.37.jpegreasd.jpeg",
+        "/assets/img/whatsapp-image-2026-11-17-at-17.39.36.jpegrawesd.jpeg",
+        "/assets/img/whatsapp-image-2026-11-17-at-17.39.37.jpegraedff.jpeg",
+        "/assets/img/whatsapp-image-2026-11-17-at-17.39.38.jpegresde.jpeg"
+      ],
+      "direccion": "Yrigoyen 227",
+      "cocheras": "",
+      "estadoOperacion": "Disponible",
+      "antiguedad": "Mayor a 20 años",
+      "banos": 1,
+      "tipo": "Departamento",
+      "estadoConservacion": "Excelente",
+      "moneda": "USD",
+      "operacion": "venta",
+      "dormitorios": 1,
+      "titulo": "Departamento renovado a nuevo en Yrigoyen 227",
+      "destacada": false
     }
   ]
 }
