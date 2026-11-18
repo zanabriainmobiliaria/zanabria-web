@@ -429,6 +429,34 @@
       "dormitorios": 1,
       "titulo": "Departamento renovado a nuevo en Yrigoyen 227",
       "destacada": false
+    },
+    {
+      "supCubierta": 32,
+      "activa": true,
+      "barrio": "Centro",
+      "ambientes": 2,
+      "precio": 550000,
+      "localidad": "Bahia Blanca",
+      "descripcion": " DEPARTAMENTO EN ALQUILER | ZONA CENTRO\n Corrientes 336, Bahía Blanca.\nDepartamento en planta baja, ubicado dentro de un complejo en pleno centro de la ciudad.\nCaracterísticas:\n▪️ 1 dormitorio con placard.\n▪️ Estar, cocina y comedor integrados.\n▪️ 1 baño.\n▪️ 32 m² de superficie cubierta.\n▪️ Planta baja.\n▪️ Excelente estado de conservación.\n Alquiler mensual: $550.000\n Condiciones de alquiler:\n• Contrato por 24 meses.\n• Ajuste cuatrimestral por ICL.\n• Seguro contra incendios.\n Consultanos para recibir más información o coordinar una visita.\nInmobiliaria Zanabria",
+      "fotos": [
+        "/assets/img/editable-publicación.pngqwsx.png",
+        "/assets/img/editable-publicación.pngwdas.png",
+        "/assets/img/editable-publicación.pngqwdxew.png",
+        "/assets/img/editable-publicación.png3ww.png",
+        "/assets/img/editable-publicación.pngyuk.png"
+      ],
+      "direccion": "Corrientes 336",
+      "estadoOperacion": "Disponible",
+      "antiguedad": "10 a 20 años",
+      "banos": 1,
+      "tipo": "Departamento",
+      "estadoConservacion": "Muy bueno",
+      "moneda": "ARS",
+      "operacion": "alquiler",
+      "dormitorios": 1,
+      "titulo": "Depatamento 1 dormitorio Corrientes 336",
+      "destacada": false,
+      "expensas": 65000
     }
   ]
 }
