@@ -457,6 +457,43 @@
       "titulo": "Depatamento 1 dormitorio Corrientes 336",
       "destacada": false,
       "expensas": 65000
+    },
+    {
+      "supCubierta": 100,
+      "activa": true,
+      "barrio": "Centro",
+      "ambientes": 5,
+      "precio": 105000,
+      "localidad": "Bahía Blanca",
+      "descripcion": "Departamento en venta | Avenida Alem 686\n\nExcelente oportunidad de compra sobre una de las avenidas más importantes de Bahía Blanca.\n\nEl departamento cuenta con aproximadamente 100 m², dos dormitorios, dos baños, cocina espaciosa y un amplio living comedor con excelentes vistas sobre Avenida Alem.\n\nLa propiedad se encuentra para refaccionar, principalmente en cuestiones de pintura, piso de la cocina y obra de gas, servicio del cual actualmente no dispone.\n\nLo más destacable de esta propiedad es su valor de venta. Tanto por su ubicación como por sus dimensiones, representa una gran oportunidad para adquirir un departamento a un precio muy competitivo dentro de la zona, invertir en su renovación y conseguir una propiedad de mayor valor.\n\nUna alternativa interesante tanto para quienes buscan invertir como para quienes desean renovar un departamento a su propio gusto en una ubicación privilegiada de la ciudad.\n\nValor de venta: USD 105.000.\n\nInmobiliaria Zanabria.",
+      "fotos": [
+        "/assets/img/editable-publicación.pnguyky8ygky7k.png",
+        "/assets/img/editable-publicación.pngaxaa.png",
+        "/assets/img/editable-publicación.pngwdqaw.png",
+        "/assets/img/editable-publicación.pngrgse.png",
+        "/assets/img/editable-publicación.pngrgewwq.png",
+        "/assets/img/editable-publicación.pngqdwe.png",
+        "/assets/img/editable-publicación.pngji-kuguky.png",
+        "/assets/img/editable-publicación.pngretrbtdf.png",
+        "/assets/img/editable-publicación.pngkfuyufu.png",
+        "/assets/img/editable-publicación.pngjhhjnhh.png",
+        "/assets/img/editable-publicación.png-iliug9u.png",
+        "/assets/img/editable-publicación.pngmkgnug.png",
+        "/assets/img/editable-publicación.pngumyfi9.png",
+        "/assets/img/editable-publicación.pngdrbdb.png",
+        "/assets/img/editable-publicación.pngykdfmty.png"
+      ],
+      "direccion": "Avenida Alem 686",
+      "estadoOperacion": "Disponible",
+      "antiguedad": "Mayor a 20 años",
+      "banos": 2,
+      "tipo": "Departamento",
+      "moneda": "USD",
+      "operacion": "venta",
+      "dormitorios": 3,
+      "titulo": "Departamento en Avenida Alem",
+      "destacada": true,
+      "expensas": 150000
     }
   ]
 }
